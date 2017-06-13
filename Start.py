@@ -33,7 +33,7 @@ class Game:
     def new(self):
         # start a new game
         self.score = 0
-        self.head_count = 0
+        self.head_count = 14
         self.enemy_level = 0
         self.speed_x = 4
         self.speed_y = 5
@@ -285,6 +285,7 @@ class Game:
         self.start_logo = pg.image.load(os.path.join(self.img_dir, START_LOGO))
         self.start_screen = pg.image.load(os.path.join(self.img_dir, START_SCREEND))
         self.menu_select = pg.image.load(os.path.join(self.img_dir, MENU_SELECT))
+        self.ending_image = pg.image.load(os.path.join(self.img_dir, ENDING_IMAGE))
         self.head = Spritesheet(os.path.join(self.img_dir, HEAD))
         self.head2 = pg.image.load(os.path.join(self.img_dir, HEAD))
         self.head2.set_colorkey(WHITE)
@@ -392,7 +393,7 @@ class Game:
 
     #게임 클리어시 나타낼 화면
     def ending_screen(self):
-        self.screen.fill(BLACK)
+        self.screen.blit(self.ending_image, (1,1))
         pg.mixer.music.load(os.path.join(self.snd_dir, 'Ending.mp3'))
         pg.mixer.music.play(loops=-1)
         self.draw_text("GAME OVER", 48, WHITE, WIDTH/2, HEIGHT - 400)
@@ -405,6 +406,7 @@ class Game:
         else:
             self.draw_text("HIGH SCORE : "+ str(self.highscore), 20, WHITE, WIDTH/2, HEIGHT - 250)
         self.draw_text("ClEAR TIME : "+ str(self.second), 20, WHITE, WIDTH/2, HEIGHT - 200)
+        self.draw_text("Press 'ESC' -> Menu", 20, WHITE, WIDTH/2, HEIGHT - 80)
         pg.display.update()
         self.wait_for_key2()
 
@@ -431,13 +433,14 @@ class Game:
         while waiting:
             self.clock.tick(FPS)
             for event in pg.event.get():
-                if event.type == pg.KEYDOWN:
-                    if event.key == pg.K_z:
-                        waiting = False
-                        self.clear = True
+                if event.type == pg.QUIT:
+                    waiting = False
+                    self.running = False
+                    self.start = False
+                elif event.type == pg.KEYDOWN:
                     if event.key == pg.K_ESCAPE:
                         waiting = False
-                        self.clear = True
+                        self.running = False
 
     #화면에 텍스트 처리를 위한 메서드
     def draw_text(self, text, size, color, x, y):
@@ -479,9 +482,6 @@ while g.start:
         g.new()
         if g.ending == True:
             g.ending_screen()
-            if g.clear == True:
-                g.running = False
-                g.start = False
         else:
             g.show_over_screen()
 pg.quit()
