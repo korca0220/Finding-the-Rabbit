@@ -36,5 +36,23 @@ python Start.py #해당 경로에서
 **클리어 조건**
 - 토끼머리 15개 획득
 
+**아이템**
+- 4개의 아이템
+- 운석 속도 급상승,급하락
+- 화면에 보이는 운석 제거
+- 총알 개체수 증가 (최대 3개)
+
 **기타**
 - 클리어 Score로 Highscore 저장
+
+**Music**
+http://opengameart.org
+
+**Sound**
+http://bfxr.net
+
+**이미지, 그래픽**
+Steam - Aseprite
+
+**참고한 영상**
+https://www.youtube.com/playlist?list=PLsk-HSGFjnaH5yghzu7PcOzm9NhsW0Urw
