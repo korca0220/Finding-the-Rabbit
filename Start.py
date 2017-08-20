@@ -33,7 +33,7 @@ class Game:
     def new(self):
         # start a new game
         self.score = 0
-        self.head_count = 14
+        self.head_count = 0
         self.enemy_level = 0
         self.speed_x = 4
         self.speed_y = 5
