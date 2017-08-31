@@ -1,6 +1,6 @@
 import os
 import random
-import pyglet
+# import pyglet
 import pygame as pg
 import time
 from time import sleep
@@ -325,7 +325,13 @@ class Game:
         pg.mixer.music.play(loops=-1)
         self.running = True
         self.start_new()
-        pg.mixer.music.fadeout(500)
+        pg.mixer.music.fadeoRut(500)
+
+    def start_new(self):
+        self.start_group = pg.sprite.Group()
+        self.select = Select(self)
+        self.start_group.add(self.select)
+        self.start_run()
 
     def start_run(self):
         #start loop
@@ -343,11 +349,7 @@ class Game:
                     self.start_playing = False
                 self.start = False
 
-    def start_new(self):
-        self.start_group = pg.sprite.Group()
-        self.select = Select(self)
-        self.start_group.add(self.select)
-        self.start_run()
+
 
     def start_update(self):
         self.start_group.update()
