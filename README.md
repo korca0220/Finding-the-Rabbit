@@ -1,4 +1,4 @@
-# Finding-the-Rabbit - 주차별
+# Finding-the-Rabbit 
 
 **개발환경**
 - python 3.6.1
