@@ -5,7 +5,7 @@ imageio==2.1.2
 moviepy==0.2.3.2
 numpy==1.13.0
 olefile==0.44
-Pillow==7.1.0
+Pillow==9.0.1
 pygame==1.9.3
 pyglet==1.2.4
 pypiwin32==220
