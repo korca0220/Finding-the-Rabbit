@@ -3,7 +3,7 @@ diff-match-patch==20121119
 future==0.16.0
 imageio==2.1.2
 moviepy==0.2.3.2
-numpy==1.13.0
+numpy==1.21.0
 olefile==0.44
 Pillow==7.1.0
 pygame==1.9.3
