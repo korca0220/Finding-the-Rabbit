@@ -10,6 +10,6 @@ pygame==1.9.3
 pyglet==1.2.4
 pypiwin32==220
 pytz==2017.2
-requests==2.20.0
+requests==2.31.0
 tablib==0.11.5
 tqdm==4.11.2
